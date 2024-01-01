@@ -15,7 +15,7 @@ std::string CeaserCipher::encrypt(string plainText, int key) {
     for (int i = 0; i < plainText.length(); ++i) {
         plainText[i] = toupper(plainText[i]);
     }
-    cout << plainText << endl;;
+
     for (char character : plainText) {
         int index = ALPHABET.find(character);
         int encryptIndex = (index + key + 27) % 27;
@@ -33,11 +33,20 @@ std::string CeaserCipher::decrypt(string cipherText, int key) {
     for (int i = 0; i < cipherText.length(); ++i) {
         cipherText[i] = toupper(cipherText[i]);
     }
-    cout << cipherText << endl;;
+
     for (char character : cipherText) {
         int index = ALPHABET.find(character);
-        int decryptIndex = (index - key) % 27;
+        int decryptIndex = (index - key + 27) % 27;
         plainText += ALPHABET[decryptIndex];
     }
     return plainText;
+}
+
+void CeaserCipher::brute_force_crack(string cipherText)
+{
+    for (int key = 0; key < 27; key++)
+    {
+        cout << "The plain text could be : " << decrypt(cipherText, key)
+            << " with " << key << " as a key " << endl;
+    }
 }

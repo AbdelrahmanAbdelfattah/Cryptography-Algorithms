@@ -7,7 +7,8 @@ private:
     static const std::string ALPHABET;
 
 public:
-    std::string encrypt(string plainText, int key);
-    std::string decrypt(string cipherText, int key);
+    string encrypt(string plainText, int key);
+    string decrypt(string cipherText, int key);
+    void brute_force_crack(string cipherText);
 };
 
