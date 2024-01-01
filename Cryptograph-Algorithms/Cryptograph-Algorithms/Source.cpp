@@ -1,12 +1,17 @@
 
-#include "randomGenerator.h"
+#include "oneTimePad.h"
 using namespace std;
 
 
 int main() {
 
-	randomGenerator* rg = new randomGenerator(100);
-	for (int i = 0; i < 10; i++)
-		cout << rg->generateRandomNumber() << endl;
+	oneTimePad* onp = new oneTimePad();
 
+	string str = "My name is abdelrahman mohamed abdelfattah aboeid";
+
+	vector<int> key = onp->generateKey(str.length());
+
+	string encrypted = onp->encrypt(str, key);
+	cout << encrypted << endl;
+	cout << onp->decrypt(encrypted, key);
 }
