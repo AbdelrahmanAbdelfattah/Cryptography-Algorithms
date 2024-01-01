@@ -1,4 +1,5 @@
 #include "analyzeText.h"
+#include "languageDetector.h"
 #include <string>
 #include<map>
 using namespace std;
@@ -12,5 +13,6 @@ public:
     string decrypt(string cipherText, int key);
     void brute_force_crack(string cipherText);
     void frequency_analysis_crack(string cipherText);
+    void language_detector_crack(string cipherText);
 };
 

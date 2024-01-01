@@ -49,9 +49,13 @@ int languageDetector::matchingWordsPercentage(string text)
     return (matchingNum / textWords.size()) * 100;
 }
 
-bool languageDetector::isEnglishText(string path, string text)
+languageDetector::languageDetector()
 {
-    this->getEnglishWords(path);
+    this->getEnglishWords(this->path);
+}
+
+bool languageDetector::isEnglishText(string text)
+{
     float percentageOfMatchingWords = this->matchingWordsPercentage(text) * 1.0;
 
     if (percentageOfMatchingWords >= 60)

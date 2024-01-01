@@ -2,13 +2,16 @@
 class languageDetector
 {
 private:
+	string path = "words_alpha.txt";
 	FileProcessor* file;
 	vector<string>englishWords;
 	void getEnglishWords(string path);
 	vector<string> splitWords(string text);
 	int matchingWordsPercentage(string text);
+
 public:
-	bool isEnglishText(string path, string txt);
+	languageDetector();
+	bool isEnglishText(string txt);
 
 };
 

@@ -67,3 +67,18 @@ void CeaserCipher::frequency_analysis_crack(string cipherText)
     }
     cout << "The approximate key is : " << (ALPHABET.find(mostFrequentChar) - ALPHABET.find(' '));
 }
+
+void CeaserCipher::language_detector_crack(string cipherText)
+{
+    languageDetector* ld = new languageDetector();
+    for (int key = 0; key < 27; key++)
+    {
+        string could_be_the_plain_text = decrypt(cipherText, key);
+        bool isEnglish = ld->isEnglishText(could_be_the_plain_text);
+        if (isEnglish)
+        {
+            cout << could_be_the_plain_text << endl;
+        }
+
+    }
+}
