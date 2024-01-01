@@ -1,32 +1,13 @@
-#include "Aes.h"
-
-
-using namespace CryptoPP;
-using namespace std;
+#include "DiffieHellmen.h"
 
 int main() {
-    try {
 
-        CryptoPP::AutoSeededRandomPool prng;
+    DiffieHellmen* dfh = new DiffieHellmen();
 
-
-        CryptoPP::SecByteBlock iv(CryptoPP::AES::BLOCKSIZE);
-        prng.GenerateBlock(iv, iv.size());
-
-        Aes* aes = new Aes();
-        string genkey = aes->generateKey();
-        string text = "hi ya abood";
-        string encrypted = aes->encrypt(genkey, text, iv);
-        string decreypted = aes->decrypt(genkey, encrypted, iv);
+    // the n should be prime number and g must be primitive root of n 
+    dfh->generateKeys(37, 13);
 
 
-    }
-    catch (const Exception& e) {
-
-        cerr << "Crypto++ Exception: " << e.what() << endl;
-        return 1;
-
-    }
 
     return 0;
 }
