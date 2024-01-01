@@ -10,6 +10,9 @@ vector<string> FileProcessor::readFile(string path)
 	// Read and print each line from the file
 	string line;
 	while (getline(inputFile, line)) {
+		for (int i = 0; i < line.length(); ++i) {
+			line[i] = toupper(line[i]);
+		}
 		words.push_back(line);
 	}
 

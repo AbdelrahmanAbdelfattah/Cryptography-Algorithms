@@ -10,6 +10,6 @@ int main() {
 
 	FileProcessor* file = new FileProcessor();
 	vector <string> words = file->readFile("words_alpha.txt");
-	cout << words.size();
+	cout << words[6];
 
 }
