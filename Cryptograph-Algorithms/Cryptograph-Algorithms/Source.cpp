@@ -1,13 +1,10 @@
-#include "DiffieHellmen.h"
+#include "bigint.h"
 
 int main() {
+    bigInt n1("4");
+    bigInt n2(4);
 
-    DiffieHellmen* dfh = new DiffieHellmen();
-
-    // the n should be prime number and g must be primitive root of n 
-    dfh->generateKeys(37, 13);
-
-
+    cout << (n1 * n2);
 
     return 0;
 }
