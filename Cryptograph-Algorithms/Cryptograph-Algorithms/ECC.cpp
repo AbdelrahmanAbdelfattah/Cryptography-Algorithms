@@ -44,13 +44,11 @@ Point ECC::DoubleAndAdd(int n, Point p)
 	for (int i = nBinary.length() - 2; i >= 0; i--)
 	{
 		char c = nBinary[i];
-		int bit = nBinary[i] - '0';
 
 		// point doubling operation
 		temp = pointAddition(temp, temp);
 
-
-		if (bit == 1)
+		if (c == '1')
 		{
 			// point addition operation
 			temp = pointAddition(temp, p);
