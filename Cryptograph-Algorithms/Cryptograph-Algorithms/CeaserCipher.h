@@ -1,5 +1,6 @@
-
+#include "analyzeText.h"
 #include <string>
+#include<map>
 using namespace std;
 
 class CeaserCipher {
@@ -10,5 +11,6 @@ public:
     string encrypt(string plainText, int key);
     string decrypt(string cipherText, int key);
     void brute_force_crack(string cipherText);
+    void frequency_analysis_crack(string cipherText);
 };
 

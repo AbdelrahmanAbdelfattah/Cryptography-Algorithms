@@ -5,7 +5,7 @@
 #include<iostream>
 using namespace std;
 
-const std::string CeaserCipher::ALPHABET = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const string CeaserCipher::ALPHABET = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 std::string CeaserCipher::encrypt(string plainText, int key) {
     std::string cipherText = "";
@@ -49,4 +49,21 @@ void CeaserCipher::brute_force_crack(string cipherText)
         cout << "The plain text could be : " << decrypt(cipherText, key)
             << " with " << key << " as a key " << endl;
     }
+}
+
+void CeaserCipher::frequency_analysis_crack(string cipherText)
+{
+    analyzeText* analysis = new analyzeText();
+    map<char, int> frequencies = analysis->analyzeString(cipherText);
+    char mostFrequentChar = ' ';
+    int mx = INT_MIN;
+    for (auto it : frequencies)
+    {
+        if (it.second > mx)
+        {
+            mostFrequentChar = it.first;
+            mx = it.second;
+        }
+    }
+    cout << "The approximate key is : " << (ALPHABET.find(mostFrequentChar) - ALPHABET.find(' '));
 }
